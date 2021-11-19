@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "van-button": "/miniprogram_npm/vant-weapp/button",
+    "van-icon": "/miniprogram_npm/vant-weapp/icon",
+    "van-row": "/miniprogram_npm/vant-weapp/row",
+    "van-col": "/miniprogram_npm/vant-weapp/col",
+    "van-slider": "/miniprogram_npm/vant-weapp/slider",
+    "van-popup": "/miniprogram_npm/vant-weapp/popup",
+    "van-cell" : "/miniprogram_npm/vant-weapp/cell",
+    "van-stepper": "/miniprogram_npm/vant-weapp/stepper"
+  },
+  "navigationBarTitleText": "订单"
+}

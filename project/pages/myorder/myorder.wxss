@@ -1,0 +1,46 @@
+/* pages/myorder/myorder.wxss */
+.bcg {
+  background-color: #f6f6f6;
+}
+.bcg .list {
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+.bcg .list .bar {
+  display: flex;
+  border-bottom: 1rpx solid #E6E6E6;
+}
+.bcg .list .bar .left {
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.bcg .list .bar .left .date {
+  font-weight: normal;
+  font-size: 20rpx;
+  color: #bbb;
+}
+.bcg .list .bar .status {
+  margin-left: auto;
+  margin-right: 20rpx;
+}
+.bcg .list .goods {
+  margin-top: 5rpx;
+  display: flex;
+  color: #aaa;
+}
+.bcg .list .goods .name {
+  margin-left: 100rpx;
+}
+.bcg .list .goods .number {
+  margin-left: auto;
+  margin-right: 20rpx;
+}
+.bcg .list .sum {
+  display: flex;
+}
+.bcg .list .sum .price {
+  margin-right: 20rpx;
+  color: red;
+  margin-left: auto;
+}

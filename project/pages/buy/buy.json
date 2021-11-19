@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-stepper": "/miniprogram_npm/vant-weapp/stepper",
+    "van-transition": "/miniprogram_npm/vant-weapp/transition",
+    "van-icon": "/miniprogram_npm/vant-weapp/icon",
+    "van-popup": "/miniprogram_npm/vant-weapp/popup"
+    
+  },
+  "navigationBarTitleText": "订餐"
+}

@@ -1,0 +1,166 @@
+<!--pages/buy/buy.wxml-->
+<view class="goods">
+    <!--地图搜索 开始-->
+    <view class="map">
+        <!-- <navigator class="address" url="../map/map" open-type="navigate"> -->
+        <view class="name" bindtap="navigate">
+            <view class="shopname">{{shop[shopid].address}}</view>
+            <view class="dis">距离您{{dis[shopid]}}km</view>
+        </view>
+        <!-- </navigator> -->
+    </view>
+    <!--地图搜索 结束-->
+    <view class="goods_container">
+        <!--左侧菜单-->
+        <scroll-view  class="left_menu" scroll-y>
+            <view class="menu_item {{index===currentIndex?'active':'notActive'}}"
+            wx:for="{{leftMenuList}}"
+            wx:key="*this"
+            bindtap="handleItemTap"
+            data-index="{{index}}"
+            >
+            {{item}}
+            </view>
+            
+        </scroll-view>
+        <!--右侧菜单-->
+        <scroll-view  class="right_content" scroll-y 
+        scroll-into-view="{{toView}}"
+        scroll-with-animation="{{true}}"
+        bindscroll="handelScroll"
+        >
+            <view class="goods_group"
+            wx:key="id"
+            wx:for="{{rightMenuList}}"
+            wx:for-index="index1"
+            wx:for-item="item1"
+            
+            >
+                <view class="goods_title"
+                id="{{'t'+item1.id}}"
+                >{{item1.title}}</view>
+                    <view 
+                    wx:for="{{item1.children}}"
+                    wx:for-index="index2"
+                    wx:for-item="item2"
+                    wx:key="id"
+                    class="goods_list {{item2.available===1?'':'sellout'}} {{item1.children.length-1===index2?'NotUnderline':''}}"
+                    bindtap="showMenu"
+                    data-item="{{item2}}"
+                    >
+                        <image mode="widthFix" src="{{item2.icon}}"></image>
+                       
+                          
+                        <view class="text">
+                            <view class="goods_name">{{item2.title}}</view>
+                            <view class="price">￥{{item2.price}}</view>
+                        </view>
+                        
+                        <button 
+                        catchtap="addCart"
+                        data-price="{{item2.price}}"
+                        hidden="{{numbers[item2.id-9]!=0}}"
+                        data-index="{{item2.id-9}}"
+                        data-item="{{item2}}">+</button>
+                        <van-stepper class="stepper" 
+                        min="0" integer 
+                        wx:if="{{numbers[item2.id-9]!=0}}"
+                        value="{{numbers[item2.id-9] }}" 
+                        data-price="{{item2.price}}"
+                        data-index="{{item2.id-9}}"
+                        data-item="{{item2}}"
+                        bind:plus="plus" bind:minus="minus" disable-input="true"
+                        catchtap="stopEventBubble"
+                        input-width="20px" button-size="1rpx"
+                        ></van-stepper>
+                    </view>
+     
+            </view>
+        </scroll-view>
+        
+    </view>
+    <van-transition name="fade-up" show="{{item_num===0?false:true}}">
+        <view class="cart" >
+            <!-- <navigator url="../cart/cart" >
+                
+                <image class="cart_icon"  src="../../icon/cart.png"></image>
+            </navigator> -->
+            <van-icon name="{{item_num===0?'bag-o':'bag'}}" info="{{item_num===0?'':item_num}}" 
+            bind:click="show" size="100rpx" class="cart_icon"/>
+            <view class="price_sum">￥{{sum}}</view>
+            <button class="buy" bindtap="nav">我选好了</button>
+        </view>
+    </van-transition>
+    <van-popup show="{{popupFlag}}" 
+    position="bottom"
+    bind:click-overlay="closePopup"
+    class="popup"
+    custom-style="height: {{bought.length<=2?bought.length<=1?'26%':'38%':'50%'}}"
+    >
+        <view class="actionbar">
+            
+            <van-icon name="delete" size="30rpx" class="actionbar" bind:click="clearCart" />
+        </view>
+          
+        <scroll-view scroll-y >
+            <view class="list"
+            wx:for="{{bought}}"
+            wx:for-index="index"
+            wx:for-item="item"
+            data-index="{{item.id-9}}"
+            scroll-with-animation="true"
+            wx:key="id"
+            >
+                <view class="left">
+                    <view class="title">{{item.title}}</view>
+                    <view class="price">￥{{item.price*numbers[item.id-9]}}</view>
+                </view>
+                <van-stepper class="stepper" 
+                wx:if="{{numbers[item.id-9]!=0}}"
+                value="{{numbers[item.id-9]}}" 
+                min="0"
+                bind:plus="plus" bind:minus="minus"
+                disable-input="true"
+                data-price="{{item.price}}"
+                data-index="{{item.id-9}}"
+                data-item="{{item}}"
+                ></van-stepper>
+            </view>
+            <view class="bottom">
+                
+            </view>
+              
+        </scroll-view>
+          
+    </van-popup>
+
+    <van-popup show="{{popupMenuFlag}}"
+    round="true"
+    position="center"
+    bind:click-overlay="onClose"
+    custom-style="height:50%;width:70%"
+    class="popupMenu"
+    >
+    <view class="pop_img">
+        <image mode="widthFix" src="{{item.icon}}"></image>
+    </view>
+      
+    <view class="title">{{item.title}}</view>
+    <view class="priceLayer">
+        <view class="price">￥{{item.price}}</view>
+        <van-stepper class="stepper"
+        min="1"
+        integer
+        disable-input="true"
+        value="{{shop_num}}"
+        bind:change="onChange"
+        ></van-stepper>
+    </view>
+    <view class="add" 
+    data-price="{{item.price}}"
+    data-index="{{item.id-9}}"
+    data-item="{{item}}" 
+    bindtap="detailsAdd">添加购物车</view>
+    </van-popup>
+</view>
+  

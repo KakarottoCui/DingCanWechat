@@ -1,0 +1,280 @@
+// page{
+//     height: 100%;
+// }
+.goods{
+    
+    .map{
+        height: 90rpx;
+        margin-bottom: 10rpx;
+        margin-left: 25rpx;
+        .dis{
+            color: #D8D8D8;
+        }
+    }
+    height: 100%;
+    .goods_container{
+        /*less中使用calc的时候要注意~，意味编译符*/
+        height: ~'calc( 100vh - 100rpx)';
+        display: flex;
+        .left_menu{
+            /*子项高度100% flex占2格*/
+            flex: 2;
+            background-color:#E6E6E6; 
+            .menu_item{
+                height: 80rpx;
+                /*使盒子变为伸缩盒子*/
+                display: flex;
+                /*文字水平居中*/
+                justify-content: center;
+                /*文字垂直居中*/
+                align-items: center;
+                font-size: 30rpx;
+                margin-top:30rpx;
+            } 
+            .active{
+                color:black;
+                // font-weight: bold;
+                border-left: 5rpx solid currentColor;
+            }
+            .notActive{
+                color:gray;
+            }
+        }
+        .right_content{
+            /*子项高度100% flex占5格*/
+            flex: 5;
+            
+            .goods_group{
+                .goods_title{
+                    font-weight: bold;
+                }
+                .goods_list{
+                    display: flex;
+                    height: 150rpx;
+                    margin: 20rpx;
+                    border-bottom: 1rpx solid #E6E6E6;
+                    /*换行效果*/
+                    // flex-wrap: wrap;
+                    image{
+                        // height: 10rpx;
+                        width: 20%;
+                    }
+
+                    .text{
+                        // display: flex;
+                        // display: inline-flex;
+                        // .goods_name{
+                        //     // font-weight: bold;    
+                        // }
+                        .price{
+                            color: red;
+                            margin-top: 30rpx;
+                        }
+                    }
+                    button{
+                        /*弹性布局
+                        使justify-content: center;
+                        align-items: center;
+                        有效*/
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-right: 0rpx;
+                        margin-top: 43rpx;
+                        width: 13rpx;
+                        height: 60rpx;
+                        background-color:#F1F1F1;
+                        border-radius:0;
+                        color:  #000000;
+                        line-height: 50rpx;
+                        // text-align: center; 
+                    }
+                    button:after {
+                        //取消边框
+                        border: 0;
+                    }
+                    .stepper{
+                        display: flex;
+                        margin-left:auto;
+                        /*文字垂直居中*/
+                        align-items: center;
+                    }
+                    .none{
+                        //使用display: none;隐藏
+                        display: none;
+                    }
+                }
+                .NotUnderline{
+                    border-bottom: 0rpx solid #fff;
+                }
+                .sellout{
+                    display: none;
+                    image{
+                        
+                        filter: grayscale(100%);
+                        filter: gray;
+                        opacity:0.2;//通过改变透明度来调节灰色的程度
+                    }
+                   
+                    .text{
+                        color: #A4A4A4;
+                        .price{
+                            color: #A4A4A4;
+                        }
+                    }
+                    button{
+                        display: none;
+                    }
+                    .stepper{
+                        display: none;
+                    }
+                }
+            }
+        }    
+        
+    }
+    .cart{
+        
+        // margin-bottom: 0;
+        display: flex;
+        background-color: #D8D8D8;
+        position: absolute;
+        bottom: 0rpx;
+        width: 750rpx;
+        height: 80rpx;
+        z-index: 200;
+        // image{
+        //     width: 120rpx;
+        //     height:120rpx;
+        //     position: absolute;
+        //     left: 10rpx;
+        //     bottom: 0rpx;
+        // }
+        .cart_icon{
+            position: absolute;
+            bottom: 0rpx;
+            left: 30rpx;
+        }
+        .price_sum{
+            position: absolute;
+            left: 150rpx;
+            display: flex;
+            /*文字水平居中*/
+            justify-content: center;
+            /*文字垂直居中*/
+            align-items: center;
+            font-size: 50rpx;
+        }
+        .buy{  
+            width: 187.5rpx;
+            // height: 30rpx;
+            margin-right: 0rpx;
+            border-radius:0;
+            background-color: #000000;
+            // border-radius:20%;
+            color: white;
+            line-height: 50rpx;
+            /*使盒子变为伸缩盒子*/
+            display: flex;
+            /*文字水平居中*/
+            justify-content: center;
+            /*文字垂直居中*/
+            align-items: center;
+            font-size: 32rpx;
+        }
+    }
+    .popup{
+        
+        .actionbar{
+            //float使用后元素上浮，脱离父级元素，
+            //设置z-index即可，z-index的规则是大的在上，小的在下
+            //但弹出框的z-index是无限大的(个人理解)
+            //伸缩盒子特性，盒子内的元素若设置了margin-left: auto;则会靠到最右边
+            display: flex;
+            van-icon{
+                margin-left: auto;
+                margin-top: 30rpx;
+                margin-right: 30rpx;
+            }
+            
+        }
+        .list{
+            display: flex;
+            margin-top: 30rpx;
+            background-color: #F7F2E0;
+            height: 100rpx;
+            width: 100%;
+            .left{
+                .title{
+                    font-size: 30rpx;
+                    margin-left: 20rpx;
+                }
+                .price{
+                    font-size: 30rpx;
+                    color: red;
+                    margin-top: 20rpx;
+                    margin-left: 20rpx;
+                }
+            }
+            .stepper{
+                margin-left: auto;
+                display: flex;
+                margin-left:auto;
+                /*文字垂直居中*/
+                align-items: center;
+            }
+        }
+        .bottom{
+            height: 100rpx;
+            width: 100%;
+        }
+    }
+    .popupMenu{
+        
+        .pop_img{
+            
+            justify-content: center;
+            display: flex;
+            
+            
+            image{
+                //  margin-left: 0%;
+                width: 50%;
+                text-align: center;
+                
+            }
+        }
+        .title{
+            margin-top: 50rpx;
+            margin-left: 30rpx;
+            color: #585858;
+        }
+        .priceLayer{
+            margin-top: 50rpx;
+            display: flex;
+            .price{
+                color: red;
+                margin-left: 20rpx;
+            }
+            .stepper{
+                margin-left: auto;
+                margin-right: 20rpx;
+            }
+        }
+        .add{
+            width: 100%;
+            margin-top: 10rpx;
+            height: 85rpx;
+            background-color: #000000;
+            // border-radius:20%;
+            color: white;
+            display: flex;
+            /*文字水平居中*/
+            justify-content: center;
+            /*文字垂直居中*/
+            align-items: center;
+            font-size: 32rpx;
+            margin-right: 0rpx;
+        }
+    }
+}

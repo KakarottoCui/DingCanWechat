@@ -1,0 +1,31 @@
+<view class="bcg">
+    <view class="list"
+        wx:for="{{order}}"
+        wx:for-index="index1"
+        wx:for-item="item1"
+        wx:key="id"
+    >
+        <view class="bar">
+            <view class="left">
+                <view class="shopname">{{item1.shopname}}</view>
+                <view class="date">{{item1.date}}</view>
+            </view>
+            <view class="status">{{item1.finish===0?'未完成':'已完成'}}</view>
+        </view>
+        <view class="goods"
+            wx:for="{{item1.children}}"
+            wx:for-index="index2"
+            wx:for-item="item2"
+            wx:key="id"
+        >
+            <view class="name">{{item2.goodsname}}</view>
+            <view class="number">{{'x'+item2.number}}</view>
+        </view>
+        <view class="sum">
+            <view class="hidden"></view>
+            <view class="price">
+            ￥{{item1.sum}}
+            </view>
+        </view>
+    </view>
+</view>

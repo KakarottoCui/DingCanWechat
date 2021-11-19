@@ -1,0 +1,44 @@
+<!--pages/form/form.wxml-->
+<view class="map">
+        <!-- <navigator class="address" url="../map/map" open-type="navigate"> -->
+        <view class="name" bindtap="navigate">
+            <view class="shopname">{{shop[shopid].address}}</view>
+            <view class="dis">距离您{{dis[shopid]}}km</view>
+        </view>
+        <!-- </navigator> -->
+</view>
+<form action="http://127.0.0.1:8080/orderForm/getForm" class="form">
+    <input type="text" name="bought" value="{{bought}}" hidden="1"/>
+    
+    <van-cell-group>
+        <van-field
+            model:value="{{ phone }}"
+            placeholder="请输入手机号"
+            border="{{ false }}"
+            label="手机号"
+            bind:change="onChange"
+            error-message="{{phoneFlag?'':'手机号格式错误'}}"
+        />
+    </van-cell-group>
+    <view class="goods"
+        wx:for="{{bought}}"
+        wx:key="id"
+        wx:for-index="index"
+        wx:for-item="item">
+        <van-card custom-class="card" 
+        thumb-class="van-card__thumb" 
+        image-class="van-card__img"
+        price-class="van-card__bottom"
+        num="{{numbers[item.id-9]}}"
+        price="{{item.price}}"
+        title="{{item.title}}"
+        thumb="{{item.icon}}"
+        />
+    </view>
+
+    <van-submit-bar
+        price="{{sum*100}}"
+        button-text="提交订单"
+        bind:submit="onSubmit"
+    />
+</form>

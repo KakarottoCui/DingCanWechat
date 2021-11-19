@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gdpu.mapper.GoodsShopMapper">
+
+    <update id="updateGoodsAvailable" parameterType="com.gdpu.bean.GoodsShop">
+        update goods_shop set available =#{available}
+        where goods_id=#{goodsId}
+        and shop_id=#{shopId}
+    </update>
+
+    <select id="getGoodsAvailable" parameterType="com.gdpu.bean.GoodsShop" resultType="Integer">
+        select available from goods_shop
+        where goods_id=#{goodsId}
+        and shop_id=#{shopId}
+    </select>
+
+    <select id="getGoodsByShopId" resultType="com.gdpu.bean.GoodsShop">
+        select goods_id,shop_id from goods_shop
+        where shop_id=#{shopId}
+    </select>
+
+    <insert id="add" parameterType="com.gdpu.bean.GoodsShop">
+        insert into goods_shop values (#{shopId},#{goodsId},#{available})
+    </insert>
+</mapper>

@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/buy/buy",
+    "pages/myorder/myorder",
+    "pages/mine/mine",
+    "pages/map/map",
+    "pages/form/form"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "我的订餐小程序",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#ffffff"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#fafafa",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "icon/home_ori.png",
+        "selectedIconPath": "icon/home.png"
+      },
+      {
+        "pagePath": "pages/buy/buy",
+        "text": "点单",
+        "iconPath": "icon/buy_ori.png",
+        "selectedIconPath": "icon/buy.png"
+      },
+      {
+        "pagePath": "pages/myorder/myorder",
+        "text": "订单",
+        "iconPath": "icon/myorder_ori.png",
+        "selectedIconPath": "icon/myorder.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

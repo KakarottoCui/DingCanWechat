@@ -1,0 +1,225 @@
+.goods {
+  height: 100%;
+}
+.goods .map {
+  height: 90rpx;
+  margin-bottom: 10rpx;
+  margin-left: 25rpx;
+}
+.goods .map .dis {
+  color: #D8D8D8;
+}
+.goods .goods_container {
+  /*less中使用calc的时候要注意~，意味编译符*/
+  height: calc( 100vh - 100rpx);
+  display: flex;
+}
+.goods .goods_container .left_menu {
+  /*子项高度100% flex占2格*/
+  flex: 2;
+  background-color: #E6E6E6;
+}
+.goods .goods_container .left_menu .menu_item {
+  height: 80rpx;
+  /*使盒子变为伸缩盒子*/
+  display: flex;
+  /*文字水平居中*/
+  justify-content: center;
+  /*文字垂直居中*/
+  align-items: center;
+  font-size: 30rpx;
+  margin-top: 30rpx;
+}
+.goods .goods_container .left_menu .active {
+  color: black;
+  border-left: 5rpx solid currentColor;
+}
+.goods .goods_container .left_menu .notActive {
+  color: gray;
+}
+.goods .goods_container .right_content {
+  /*子项高度100% flex占5格*/
+  flex: 5;
+}
+.goods .goods_container .right_content .goods_group .goods_title {
+  font-weight: bold;
+}
+.goods .goods_container .right_content .goods_group .goods_list {
+  display: flex;
+  height: 150rpx;
+  margin: 20rpx;
+  border-bottom: 1rpx solid #E6E6E6;
+  /*换行效果*/
+}
+.goods .goods_container .right_content .goods_group .goods_list image {
+  width: 20%;
+}
+.goods .goods_container .right_content .goods_group .goods_list .text .price {
+  color: red;
+  margin-top: 30rpx;
+}
+.goods .goods_container .right_content .goods_group .goods_list button {
+  /*弹性布局
+                        使justify-content: center;
+                        align-items: center;
+                        有效*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0rpx;
+  margin-top: 43rpx;
+  width: 13rpx;
+  height: 60rpx;
+  background-color: #F1F1F1;
+  border-radius: 0;
+  color: #000000;
+  line-height: 50rpx;
+}
+.goods .goods_container .right_content .goods_group .goods_list button:after {
+  border: 0;
+}
+.goods .goods_container .right_content .goods_group .goods_list .stepper {
+  display: flex;
+  margin-left: auto;
+  /*文字垂直居中*/
+  align-items: center;
+}
+.goods .goods_container .right_content .goods_group .goods_list .none {
+  display: none;
+}
+.goods .goods_container .right_content .goods_group .NotUnderline {
+  border-bottom: 0rpx solid #fff;
+}
+.goods .goods_container .right_content .goods_group .sellout {
+  display: none;
+}
+.goods .goods_container .right_content .goods_group .sellout image {
+  filter: grayscale(100%);
+  filter: gray;
+  opacity: 0.2;
+}
+.goods .goods_container .right_content .goods_group .sellout .text {
+  color: #A4A4A4;
+}
+.goods .goods_container .right_content .goods_group .sellout .text .price {
+  color: #A4A4A4;
+}
+.goods .goods_container .right_content .goods_group .sellout button {
+  display: none;
+}
+.goods .goods_container .right_content .goods_group .sellout .stepper {
+  display: none;
+}
+.goods .cart {
+  display: flex;
+  background-color: #D8D8D8;
+  position: absolute;
+  bottom: 0rpx;
+  width: 750rpx;
+  height: 80rpx;
+  z-index: 200;
+}
+.goods .cart .cart_icon {
+  position: absolute;
+  bottom: 0rpx;
+  left: 30rpx;
+}
+.goods .cart .price_sum {
+  position: absolute;
+  left: 150rpx;
+  display: flex;
+  /*文字水平居中*/
+  justify-content: center;
+  /*文字垂直居中*/
+  align-items: center;
+  font-size: 50rpx;
+}
+.goods .cart .buy {
+  width: 187.5rpx;
+  margin-right: 0rpx;
+  border-radius: 0;
+  background-color: #000000;
+  color: white;
+  line-height: 50rpx;
+  /*使盒子变为伸缩盒子*/
+  display: flex;
+  /*文字水平居中*/
+  justify-content: center;
+  /*文字垂直居中*/
+  align-items: center;
+  font-size: 32rpx;
+}
+.goods .popup .actionbar {
+  display: flex;
+}
+.goods .popup .actionbar van-icon {
+  margin-left: auto;
+  margin-top: 30rpx;
+  margin-right: 30rpx;
+}
+.goods .popup .list {
+  display: flex;
+  margin-top: 30rpx;
+  background-color: #F7F2E0;
+  height: 100rpx;
+  width: 100%;
+}
+.goods .popup .list .left .title {
+  font-size: 30rpx;
+  margin-left: 20rpx;
+}
+.goods .popup .list .left .price {
+  font-size: 30rpx;
+  color: red;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+.goods .popup .list .stepper {
+  display: flex;
+  margin-left: auto;
+  /*文字垂直居中*/
+  align-items: center;
+}
+.goods .popup .bottom {
+  height: 100rpx;
+  width: 100%;
+}
+.goods .popupMenu .pop_img {
+  justify-content: center;
+  display: flex;
+}
+.goods .popupMenu .pop_img image {
+  width: 50%;
+  text-align: center;
+}
+.goods .popupMenu .title {
+  margin-top: 50rpx;
+  margin-left: 30rpx;
+  color: #585858;
+}
+.goods .popupMenu .priceLayer {
+  margin-top: 50rpx;
+  display: flex;
+}
+.goods .popupMenu .priceLayer .price {
+  color: red;
+  margin-left: 20rpx;
+}
+.goods .popupMenu .priceLayer .stepper {
+  margin-left: auto;
+  margin-right: 20rpx;
+}
+.goods .popupMenu .add {
+  width: 100%;
+  margin-top: 10rpx;
+  height: 85rpx;
+  background-color: #000000;
+  color: white;
+  display: flex;
+  /*文字水平居中*/
+  justify-content: center;
+  /*文字垂直居中*/
+  align-items: center;
+  font-size: 32rpx;
+  margin-right: 0rpx;
+}
