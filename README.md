@@ -1,9 +1,7 @@
 # DingCanWechat
 基于SpringBoot和微信小程序的订餐小程序
 
-本代码并非完整版，如需完整版请加QQ：821898835，承接商业项目和毕设代做！
-
-演示视频：https://live.csdn.net/v/179979
+演示视频：https://live.csdn.net/v/184576
 
 技术范围
 
@@ -35,3 +33,5 @@ springboot+layui+shiro+mysql+mybatis-plus+ thymeleaf
 下单结算
 
 订单信息
+
+详询QQ：821898835，微信：egvh56ufy7hh，承接商业项目和毕设
