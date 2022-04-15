@@ -34,4 +34,4 @@ springboot+layui+shiro+mysql+mybatis-plus+ thymeleaf
 
 订单信息
 
-详询 微信：egvh56ufy7hh QQ：821898835，承接商业项目和毕设
+详询 微信：egvh56ufy7hh ，承接商业项目和毕设
