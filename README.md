@@ -6,6 +6,7 @@
 技术范围
 
 springboot+layui+shiro+mysql+mybatis-plus+ thymeleaf
+
 功能介绍
 
 后台
@@ -34,4 +35,5 @@ springboot+layui+shiro+mysql+mybatis-plus+ thymeleaf
 
 订单信息
 
-详询 微信：egvh56ufy7hh 钉钉：chengxuyuandabo，承接商业项目和毕设
+
+详询 微信1：egvh56ufy7hh ，微信2：A15192572135 ，钉钉：chengxuyuandabo ，QQ：821898835 ，承接商业项目和毕设
